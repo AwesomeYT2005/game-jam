@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b25a2beyym67k"]
+[gd_scene load_steps=3 format=3 uid="uid://b25a2beyym67k"]
 
 [ext_resource type="PackedScene" uid="uid://c5q3qhijta75r" path="res://scenes/level_template.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://scenes/player.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -11,3 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LevelTemplate" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(246, 299)

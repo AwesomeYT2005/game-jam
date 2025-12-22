@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://1jo7eyjmptkf"]
+
+[ext_resource type="Texture2D" uid="uid://dr7bhe3vrjyu2" path="res://assets/images/tilemap/basictilemap.png" id="1_3vyb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(64, 62)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vyb7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
