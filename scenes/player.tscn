@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://1jo7eyjmptkf"]
+[gd_scene load_steps=4 format=3 uid="uid://1jo7eyjmptkf"]
 
-[ext_resource type="Texture2D" uid="uid://dr7bhe3vrjyu2" path="res://assets/images/tilemap/basictilemap.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bdlrxqu41o0us" path="res://scenes/scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cud47dp2k0dd8" path="res://testsprites/red/texture_01.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(64, 62)
+size = Vector2(60, 63)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3vyb7")
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("2_g2els")
