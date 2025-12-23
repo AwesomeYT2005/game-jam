@@ -11,17 +11,17 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if exit_door_state:
 		door.position = Vector2(1300,563)
 	else:
 		door.position = Vector2(1136,563)
 
 
-func _on_button_body_entered(body: Node2D) -> void:
+func _on_button_body_entered(_body: Node2D) -> void:
 	exit_door_state = true
 
 
 
-func _on_button_body_exited(body: Node2D) -> void:
+func _on_button_body_exited(_body: Node2D) -> void:
 	exit_door_state = false
