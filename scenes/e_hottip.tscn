@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dynawiy7aqab3"]
+
+[node name="E Hottip" type="ColorRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 23
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

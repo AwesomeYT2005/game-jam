@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b25a2beyym67k"]
+[gd_scene load_steps=10 format=3 uid="uid://b25a2beyym67k"]
 
 [ext_resource type="Script" uid="uid://2gcu7i5645j4" path="res://scenes/scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://1jo7eyjmptkf" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://qecy742xvugx" path="res://scenes/level_testing.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b4m84k71pu7m" path="res://scenes/door.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bi3q0ikbmnnyk" path="res://scenes/box.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dynawiy7aqab3" path="res://scenes/e_hottip.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://clbyhgq53nfc5" path="res://scenes/note_text.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://d20xlomgstf6d" path="res://scenes/button.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c808ew8bqvmo0" path="res://scenes/note.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -16,19 +19,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jyhfs")
 
+[node name="Note" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(929, 585.99994)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="EHottip" parent="Note" instance=ExtResource("3_tipki")]
+offset_left = -384.0
+offset_top = -1750.0
+offset_right = -352.0
+offset_bottom = -1718.0
+scale = Vector2(24, 24)
+
+[node name="NoteText" parent="Note" instance=ExtResource("4_85g3d")]
+visible = false
+offset_left = -2870.9678
+offset_top = -2451.6128
+offset_right = -2870.9678
+offset_bottom = -2451.6128
+scale = Vector2(24, 24)
+
 [node name="ExitDoor" parent="." instance=ExtResource("2_tefeu")]
 position = Vector2(1136, 563)
-
-[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(246, 299)
 
 [node name="LevelTemplate" parent="." instance=ExtResource("2_sugp2")]
 
 [node name="Box" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(564, 434)
+position = Vector2(623, 501)
 
 [node name="Button" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(404, 617)
+position = Vector2(622, 611)
 
+[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(192, 586)
+
+[connection signal="body_entered" from="Note" to="." method="_on_note_body_entered"]
+[connection signal="body_exited" from="Note" to="." method="_on_note_body_exited"]
 [connection signal="body_entered" from="Button" to="." method="_on_button_body_entered"]
 [connection signal="body_exited" from="Button" to="." method="_on_button_body_exited"]

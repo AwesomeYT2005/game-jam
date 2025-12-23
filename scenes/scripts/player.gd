@@ -30,3 +30,9 @@ func _physics_process(delta: float) -> void:
 			collision_box.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 	move_and_slide()
+
+##################################
+
+##### SIGNALS
+
+##################################
