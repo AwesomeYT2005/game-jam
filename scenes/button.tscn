@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d20xlomgstf6d"]
+
+[ext_resource type="Texture2D" uid="uid://dwjvhkrll2voi" path="res://testsprites/red/texture_02.png" id="1_mi6dp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhj8v"]
+size = Vector2(64, 14)
+
+[node name="Button" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rhj8v")
+
+[node name="Texture02" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.015)
+texture = ExtResource("1_mi6dp")
