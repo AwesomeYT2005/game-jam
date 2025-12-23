@@ -46,14 +46,23 @@ func _process(_delta: float) -> void:
 
 ####################################
 
-func _on_button_body_entered(_body: Node2D) -> void:
+func _on_button_body_entered(body: Node2D) -> void:
 	exit_door_state = false
-	var collision_box = button.get_collider()
-	if collision_box is RigidBody2D:
-		button.get_node("Texture02").set_texture("res://testsprites/green/texture_02.png")
+	if body is not RigidBody2D:
+		var button_sprite: AnimatedSprite2D = button.get_node("Sprite2D")
+		button_sprite.animation = "on"
+	else:
+		var button_sprite: AnimatedSprite2D = button.get_node("Sprite2D")
+		button_sprite.animation = "on"
+		var box_sprite: AnimatedSprite2D = box.get_node("Sprite2D")
+		box_sprite.animation = "on"
 
 func _on_button_body_exited(_body: Node2D) -> void:
 	exit_door_state = true
+	var button_sprite: AnimatedSprite2D = button.get_node("Sprite2D")
+	button_sprite.animation = "default"
+	var box_sprite: AnimatedSprite2D = box.get_node("Sprite2D")
+	box_sprite.animation = "default"
 
 
 func _on_note_body_entered(_body: Node2D) -> void:

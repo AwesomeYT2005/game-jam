@@ -1,9 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://d20xlomgstf6d"]
+[gd_scene load_steps=7 format=3 uid="uid://d20xlomgstf6d"]
 
 [ext_resource type="Texture2D" uid="uid://dwjvhkrll2voi" path="res://testsprites/red/texture_02.png" id="1_mi6dp"]
+[ext_resource type="Texture2D" uid="uid://cgaehvwttueh5" path="res://testsprites/green/texture_02.png" id="2_rhj8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhj8v"]
-size = Vector2(64, 14)
+size = Vector2(64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q610"]
+atlas = ExtResource("1_mi6dp")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7y4x"]
+atlas = ExtResource("2_rhj8v")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bdt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q610")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7y4x")
+}],
+"loop": true,
+"name": &"on",
+"speed": 20.0
+}]
 
 [node name="Button" type="Area2D"]
 collision_layer = 2
@@ -12,6 +40,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rhj8v")
 
-[node name="Texture02" type="Sprite2D" parent="."]
-scale = Vector2(0.063, 0.015)
-texture = ExtResource("1_mi6dp")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.861023e-06, 4.7683716e-07)
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_1bdt2")
+animation = &"on"
+autoplay = "default"

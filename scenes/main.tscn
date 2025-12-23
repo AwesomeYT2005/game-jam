@@ -48,6 +48,7 @@ position = Vector2(1136, 563)
 position = Vector2(623, 501)
 
 [node name="Button" parent="." instance=ExtResource("5_tbgi4")]
+texture_filter = 1
 position = Vector2(622, 611)
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
