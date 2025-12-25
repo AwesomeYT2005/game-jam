@@ -7,6 +7,8 @@ extends Control
 @onready var e_hottip: ColorRect = $Note/EHottip
 @onready var note_text: ColorRect = $Note/NoteText
 @onready var button: Area2D = $Button
+var current_level = preload("res://scenes/level_testing.tscn").instantiate()
+var next_level = preload("res://scenes/level_testing_2.tscn").instantiate()
 
 var exit_door_state: bool = true
 var e_tooltip_showing: bool = false
@@ -15,7 +17,7 @@ var note_discovered: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	self.add_child(current_level)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,3 +76,6 @@ func _on_note_body_exited(_body:Node2D) -> void:
 	e_tooltip_showing = false
 	note_readable = false
 	note_discovered = false
+
+func _on_player_won() -> void:
+	pass
